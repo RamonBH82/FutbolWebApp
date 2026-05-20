@@ -8,7 +8,6 @@ Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebColumnButton.pkg
 Use cWebColumn.pkg
-Use ZoomEquipo.wo
 
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
@@ -25,12 +24,11 @@ Object oSelectEquipo is a cWebView
     End_Object 
 
     Object oequipo_DD is a cequipoDataDictionary
-        Set DDO_Server To oliga_DD
+        Set DDO_Server to oliga_DD
     End_Object 
 
-    Set Main_DD To oequipo_DD
-    Set Server  To oequipo_DD
-
+    Set Main_DD to oequipo_DD
+    Set Server  to oequipo_DD
 
     Object oList is a cWebList
         Set piColumnSpan to 0
@@ -65,10 +63,7 @@ Object oSelectEquipo is a cWebView
                 Move True to NavigateData.bReadOnly
             End_Procedure
 
-        End_Object 
-
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-//        WebRegisterPath ntNavigateForward oSelectView
+        End_Object
 
         Procedure OnRowClick String sRowId
             tWebNavigateData NavigateData
@@ -76,9 +71,6 @@ Object oSelectEquipo is a cWebView
 
             Case Begin
                 Case (NavigateData.eNavigateType = nfFromParent)
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
                     Case Break
 
                 Case (NavigateData.eNavigateType = nfFromChild)
@@ -89,11 +81,8 @@ Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not y
                     Send NavigateClose Self
                     Case Break
 
-                Case Else // must be nfUndefined
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
-
+                Case Else
+                    Case Break
             Case End
         End_Procedure
 
@@ -138,24 +127,21 @@ Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not y
 
         Case Begin
             Case (NavigateData.eNavigateType = nfFromParent)
-                // If from parent, this is a constrained drill down
                 Case Break
 
             Case (NavigateData.eNavigateType = nfFromChild)
-                // If from child, this is a probably a parent lookup from a Zoom
+                WebSet pbRender of oDetailButton to False
+                WebSet pbRender of oNewButton to False
                 Case Break
 
             Case (NavigateData.eNavigateType = nfFromMain)
-                // If from main, this is a probably a main-file lookup from a Zoom
                 WebSet pbRender of oDetailButton to False
                 Case Break
 
-            Case Else // must be nfUndefined
-                // This may be the start of a drilldown query or this may be used for some kind of custom query.
+            Case Else
 
         Case End
 
     End_Procedure
 
-
-End_Object 
+End_Object

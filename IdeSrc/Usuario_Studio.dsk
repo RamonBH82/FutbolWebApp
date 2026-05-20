@@ -3,41 +3,5 @@ CurrentProject=WebApp.src
 Location=C:\DataFlex Projects\FutbolWebApp\IdeSrc\Usuario_Studio.dsk
 CreateNew=3
 [TabWindows]
-GroupCount=1
+GroupCount=0
 HorizontalGroups=1
-[TabGroup0]
-GroupSize=40
-SelectedTab=2
-[Window0]
-Filename=C:\DataFlex Projects\FutbolWebApp\AppSrc\Dashboard.wo
-ViewType=1
-Top=21
-Left=0
-Bottom=448
-Right=874
-CursorLine=114
-CursorColumn=25
-TabIndex=0
-TabGroup=0
-[Window1]
-Filename=C:\DataFlex Projects\FutbolWebApp\AppSrc\WebApp.src
-ViewType=1
-Top=21
-Left=0
-Bottom=448
-Right=874
-CursorLine=11
-CursorColumn=34
-TabIndex=1
-TabGroup=0
-[Window2]
-Filename=C:\Program Files\DataFlex 25.0\Pkg\cWebAppBase_Mixin.pkg
-ViewType=1
-Top=21
-Left=0
-Bottom=448
-Right=874
-CursorLine=292
-CursorColumn=0
-TabIndex=2
-TabGroup=0
